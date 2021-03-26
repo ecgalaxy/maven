@@ -1,0 +1,16 @@
+---
+- name: Verify
+  hosts: all
+  vars_files:
+    - ../../defaults/main.yml
+  roles:
+    - role: bootstrap
+    - role: java8_openjdk
+  tasks:
+  - name: Check maven version
+    command: mvn --version
+    register: output
+  - name: Assert that maven is installed
+    assert:
+      that:
+      - "'Maven {{ maven_version }}' in output.stdout"
