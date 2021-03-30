@@ -1,0 +1,43 @@
+---
+- name: Ensure maven lib folder exists
+  file:
+    path: "{{ maven_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+
+- name: Download maven archive
+  get_url:
+    url: "{{ maven_download_url }}"
+    dest: /tmp/maven.tar.gz
+    mode: 0655
+    checksum: "{{ maven_checksum }}"
+  changed_when: false
+
+- name: Extract maven archive
+  unarchive:
+    src: /tmp/maven.tar.gz
+    dest: "{{ maven_path }}"
+    creates: "{{ maven_path }}/bin/mvn"
+    owner: root
+    group: root
+    remote_src: yes
+    extra_opts: [--strip-components=1]
+  become: true
+
+- name: Remove maven archive
+  file:
+    path: /tmp/maven.tar.gz
+    state: absent
+  changed_when: false
+
+- name: Create maven symlink
+  file:
+    src: "{{ maven_path }}/bin/mvn"
+    dest: "{{ maven_bin }}"
+    owner: root
+    group: root
+    state: link
+  become: true

@@ -1,0 +1,36 @@
+---
+- name: Prepare
+  hosts: all
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+    - name: Install maven installer dependencies
+      package:
+        name:
+          - tar
+        state: present
+      changed_when: false
+    - name: Install maven test dependencies
+      package:
+        name:
+          - which
+        state: present
+      when: ansible_os_family == 'RedHat'
+      changed_when: false
+    # https://github.com/debuerreotype/debuerreotype/issues/10
+    - name: Create missing man directory
+      file:
+        path: /usr/share/man/man1
+        state: directory
+        owner: root
+        group: root
+        mode: 0755
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+  environment:
+    http_proxy: "{{ lookup('env', 'http_proxy') }}"
+    https_proxy: "{{ lookup('env', 'https_proxy') }}"
+    no_proxy: "{{ lookup('env', 'no_proxy') }}"
+  become: true
