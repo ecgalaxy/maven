@@ -6,7 +6,7 @@ Installs Maven - https://maven.apache.org/
 Requirements
 ------------
 
-* A Java JDK, which can be provided by ecgalaxy.java8_openjdk
+* A Java JDK, which can be provided by ecgalaxy.java_openjdk
 
 Role Variables
 --------------
@@ -26,12 +26,16 @@ Dependencies
 Example Playbook
 ----------------
 
-TODO.
+    - hosts: all
+      roles:
+        - ecgalaxy.maven
 
 License
 -------
 
-EUPL-1.2
+Copyright the European Union 2022.
+
+Licensed under the EUPL-1.2 or later.
 
 Author Information
 ------------------

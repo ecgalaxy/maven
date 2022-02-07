@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include maven"
+    - name: Include maven
       include_role:
         name: "maven"
   environment:

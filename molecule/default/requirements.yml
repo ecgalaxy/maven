@@ -1,10 +1,3 @@
 ---
-- src: "https://citnet.tech.ec.europa.eu/CITnet/stash/scm/ecgalaxy/bootstrap.git"
-  scm: git
-  name: bootstrap
-  version: 1.0.0
-
-- src: "https://citnet.tech.ec.europa.eu/CITnet/stash/scm/ecgalaxy/java8_openjdk.git"
-  scm: git
-  name: java8_openjdk
-  version: 1.0.0
+- ecgalaxy.bootstrap
+- ecgalaxy.java_openjdk

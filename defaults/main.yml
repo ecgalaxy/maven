@@ -1,6 +1,6 @@
 ---
-maven_version: 3.6.3
+maven_version: 3.8.4
 maven_download_url: "https://downloads.apache.org/maven/maven-{{ maven_version.split('.')[0] }}/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
-maven_checksum: "sha256:26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
-maven_path: "/usr/local/lib/maven-{{ maven_version }}"
+maven_checksum: "sha256:2cdc9c519427bb20fdc25bef5a9063b790e4abd930e7b14b4e9f4863d6f9f13c"
+maven_path: "/opt/maven/{{ maven_version }}"
 maven_bin: "/usr/local/bin/mvn"

@@ -4,8 +4,8 @@
   vars_files:
     - ../../defaults/main.yml
   roles:
-    - role: bootstrap
-    - role: java8_openjdk
+    - role: ecgalaxy.bootstrap
+    - role: ecgalaxy.java_openjdk
   tasks:
   - name: Check maven version
     command: mvn --version
