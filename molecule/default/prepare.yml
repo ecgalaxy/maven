@@ -3,17 +3,17 @@
   hosts: all
   tasks:
     - name: Update apt cache
-      apt: update_cache=yes cache_valid_time=600
+      ansible.builtin.apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
       changed_when: false
     - name: Install maven installer dependencies
-      package:
+      ansible.builtin.package:
         name:
           - tar
         state: present
       changed_when: false
     - name: Install maven test dependencies
-      package:
+      ansible.builtin.package:
         name:
           - which
         state: present
@@ -21,7 +21,7 @@
       changed_when: false
     # https://github.com/debuerreotype/debuerreotype/issues/10
     - name: Create missing man directory
-      file:
+      ansible.builtin.file:
         path: /usr/share/man/man1
         state: directory
         owner: root

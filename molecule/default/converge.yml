@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Include maven
-      include_role:
+      ansible.builtin.include_role:
         name: "maven"
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"
