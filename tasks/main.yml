@@ -5,14 +5,14 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: 'u=rwx,go=rx'
   become: true
 
 - name: Download maven archive
   ansible.builtin.get_url:
     url: "{{ maven_download_url }}"
     dest: /tmp/maven.tar.gz
-    mode: 0655
+    mode: 'u=rw,go=r'
     checksum: "{{ maven_checksum }}"
   changed_when: false
 
@@ -23,7 +23,7 @@
     creates: "{{ maven_path }}/bin/mvn"
     owner: root
     group: root
-    remote_src: yes
+    remote_src: true
     extra_opts: [--strip-components=1]
   become: true
 
