@@ -1,6 +1,6 @@
 ---
-maven_version: 3.9.9
+maven_version: 3.9.10
 maven_download_url: "https://downloads.apache.org/maven/maven-{{ maven_version.split('.')[0] }}/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz" # noqa yaml[line-length]
-maven_checksum: "sha512:a555254d6b53d267965a3404ecb14e53c3827c09c3b94b5678835887ab404556bfaf78dcfe03ba76fa2508649dca8531c74bca4d5846513522404d48e8c4ac8b"
+maven_checksum: "sha512:4ef617e421695192a3e9a53b3530d803baf31f4269b26f9ab6863452d833da5530a4d04ed08c36490ad0f141b55304bceed58dbf44821153d94ae9abf34d0e1b"
 maven_path: "/opt/maven/{{ maven_version }}"
 maven_bin: "/usr/local/bin/mvn"
